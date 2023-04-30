@@ -33,8 +33,11 @@ import {
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
-        p={5}>
-        <Stack align={'start'} spacing={2}>
+        p={5}
+        backgroundColor={"#ffffff"}
+        border={"1px solid #e7e7e7"}
+      >
+        <Stack align={'center'} spacing={4}>
           <Flex
             w={16}
             h={16}
@@ -46,8 +49,8 @@ import {
             {icon}
           </Flex>
           <Box mt={2}>
-            <Heading size="md">{heading}</Heading>
-            <Text mt={1} fontSize={'sm'}>
+            <Heading size="md" textAlign={"center"}>{heading}</Heading>
+            <Text mt={1} fontSize={'sm'} textAlign={"center"}>
               {description}
             </Text>
           </Box>
@@ -61,7 +64,7 @@ import {
   
   export default function Feature() {
     return (
-      <Box p={4}>
+      <Box py={16} backgroundColor={"#f0f0f0"}>
         <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
           <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
             Layanan Kami

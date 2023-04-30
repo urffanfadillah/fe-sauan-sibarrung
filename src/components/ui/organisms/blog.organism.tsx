@@ -60,7 +60,7 @@ const Blog = () => {
   return (
     <Container maxW={'7xl'} p="12">
       <Heading as="h2" marginTop="5">
-        Artikel
+        Berita Terbaru
       </Heading>
       <Divider marginTop="5" />
       <Wrap spacing="30px" marginTop="5">
