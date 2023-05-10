@@ -2,16 +2,15 @@ import { Box, Flex } from '@chakra-ui/layout';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import useLoadingScreen from '../../hooks/customs/useLoadingScreen';
-import { LayoutInterface } from "../../hooks/interfaces/layout.interface";
 import LoadingScreen from '../ui/molecules/loadingScreen.molecule';
 import Navbar from '../ui/organisms/navbar.organism';
 import Footer from '../ui/organisms/footer.organism';
 
-export default function Layout({ title }: LayoutInterface) {
+export default function Layout() {
   const loadingScreenState = useLoadingScreen();
 
   useEffect(() => {
-    document.title = title || 'Sauan Sibarrung';
+    document.title = 'Sauan Sibarrung';
   });
 
   return (
