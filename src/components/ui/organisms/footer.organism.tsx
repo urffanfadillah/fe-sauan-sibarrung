@@ -12,6 +12,7 @@ const Footer = () => {
       padding="1.5rem"
       bg="gray.900"
       color="white"
+      mt={32}
     >
       <Box>
         <Flex gap={4} alignItems={'center'}>

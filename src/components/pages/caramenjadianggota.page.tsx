@@ -1,8 +1,9 @@
 import { Container, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import Navigation from "../ui/molecules/navigation.molecule";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DaftarKomentar from "../ui/organisms/daftarkomentar.organism";
+
 
 interface detailBeritaTypes {    
     content: string;    
@@ -10,10 +11,11 @@ interface detailBeritaTypes {
 
 export default function CaraMenjadiAnggota() {    
     const [data, setData] = useState<detailBeritaTypes>();
+
     useEffect(() => {        
         axios.get(`${import.meta.env.VITE_ENDPOINT}cara-menjadi-anggota`)
             .then((response) => {
-                setData(response.data.data);                
+                setData(response.data.data);
             }).catch((error) => {
                 console.log(error);
             });
@@ -36,6 +38,7 @@ export default function CaraMenjadiAnggota() {
             <VStack spacing={4} py={4}>
                 <Text dangerouslySetInnerHTML={{__html: data?.content as string}} />
             </VStack>
+            <DaftarKomentar urlSlug={'permohonan-menjadi-anggota'} />
         </Container>
     )
 }

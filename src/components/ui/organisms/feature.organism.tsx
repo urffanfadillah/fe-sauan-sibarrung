@@ -61,8 +61,8 @@ export default function Feature() {
       <Container maxW={'5xl'} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">
           {
-            testimoni.map((result) => 
-              <Card heading={result.title} image_url={result.image_url} description={result.content} />
+            testimoni.map((result, index) => 
+              <Card key={index} heading={result.title} image_url={result.image_url} description={result.content} />
             )
           }
         </Flex>
