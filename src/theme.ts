@@ -1,7 +1,11 @@
 // import { extendTheme } from '@chakra-ui/theme-utils';
 import { extendTheme } from "@chakra-ui/react";
 
-const theme = extendTheme({  
+const theme = extendTheme({
+  fonts: {
+    heading: "Montserrat",
+    body: "Montserrat"
+  },
   colors: {
     primary: {
       100: '#D1F6EB',

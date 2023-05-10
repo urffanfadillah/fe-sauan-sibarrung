@@ -1,30 +1,10 @@
-import {
-  Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
-  Spacer,
-  Center
-} from '@chakra-ui/react';
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from '@chakra-ui/icons';
+import { Box, Flex, Text, IconButton, Stack, Collapse, Icon, Link, Popover, PopoverTrigger, PopoverContent, useColorModeValue, useDisclosure, Image } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 
-import headerBackground from '../../../assets/images/Header_Website.png'
+import headerBackground from '../../../assets/images/Header_Website.png';
+import logoCU from '../../../assets/images/Logo_CU.png';
+import { navItemType } from '../../../hooks/interfaces/navitem.interface';
+import { FcAssistant, FcBriefcase, FcBusinessContact, FcCalculator, FcConferenceCall, FcHome, FcNews, FcSalesPerformance } from 'react-icons/fc';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -33,9 +13,10 @@ export default function Navbar() {
     <>
       <Box
         backgroundImage={`url(${headerBackground})`}
-        backgroundPosition="center"
+        backgroundPosition="left"
         backgroundRepeat="no-repeat"
-        h={8}
+        objectFit={"cover"}
+        h={12}
       />
       <Box>
         <Flex
@@ -59,14 +40,10 @@ export default function Navbar() {
               aria-label={'Toggle Navigation'}
             />
           </Flex>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-            display={{ base: 'block', md:'none' }}
-          >
-            Logo
-          </Text>
+          <Flex display={{ base: 'block', md: 'none' }} justifyContent={'center'} alignItems={'center'}>
+            <Image src={logoCU} w={8} h={8} />
+            <Text>CU Sauan Sibarrung</Text>
+          </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -94,7 +71,7 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={5}
+                px={2}                
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
@@ -103,7 +80,10 @@ const DesktopNav = () => {
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}>
-                {navItem.label}
+                <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>
+                  {navItem.icon}
+                  {navItem.label}
+                </Flex>
               </Link>
             </PopoverTrigger>
 
@@ -112,7 +92,8 @@ const DesktopNav = () => {
                 border={0}
                 boxShadow={'xl'}
                 bg={popoverContentBgColor}
-                p={5}
+                px={2}
+                py={1}
                 rounded={'xl'}
                 w={"fit-content"}
               >
@@ -130,7 +111,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }: navItemType) => {
   return (
     <Link
       href={href}
@@ -148,7 +129,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             fontWeight={500}
             fontSize={14}
           >
-            {label}
+            {label}            
           </Text>
           <Text fontSize={'sm'}>{subLabel}</Text>
         </Box>
@@ -180,7 +161,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, icon, children, href }: navItemType) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -194,11 +175,15 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         _hover={{
           textDecoration: 'none',
         }}>
-        <Text
+        {/* <Text
           fontWeight={600}
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
-        </Text>
+        </Text> */}
+        <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>
+          {icon}
+          {label}
+        </Flex>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -230,113 +215,115 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
 
-const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS: Array<navItemType> = [
   {
     label: 'Home',
-    href: '#',
+    href: '/',
+    icon: <FcHome />
   },
   {
     label: 'Profile',
+    icon:<FcBriefcase />,
     children: [
       {
         label: 'Visi, Misi, Nilai Nilai Inti',
-        href: '#',
+        href: '/visi-misi',
       },
       {
         label: 'Struktur',
-        href: '#',
+        href: '/struktur-organisasi',
       },
       {
         label: 'About Credit Union',
-        href: '#',
+        href: '/about-cu',
       },
       {
         label: 'About Credit Union Sauan Sibarrung',
-        href: '#',
+        href: '/about-cuss',
       },
       {
         label: 'History of CU Sauan Sibarrung',
-        href: '#',
+        href: '/history-cuss',
       },
       {
         label: 'Profil Pengurus & Pengawas',
-        href: '#',
+        href: '/profil-pengurus',
       },
     ],    
   },
   {
     label: 'Kaisungan',
-    href: '#',
+    href: '/kaisungan',
+    icon: <FcConferenceCall />
   },
   {
     label: 'Produk & Pelayanan',
+    icon: <FcSalesPerformance />,
     children: [
       {
         label: "Produk Simpanan",
-        href: "#",
+        href: "/produk-simpanan",
       },
       {
         label: "Pelayanan Pinjaman",
-        href: "#",
+        href: "/pelayanan-pinjaman",
       },
     ],
   },
   {
     label: 'Kelompok Binaan',
+    icon: <FcAssistant />,
     children: [
       {
         label: "Latar Belakang",
-        href: "#",
+        href: "/latar-komunitas",
       },
       {
         label: "Komunitas",
-        href: "#",
+        href: "/komunitas",
       },
     ],
   },
   {
     label: 'Menjadi Anggota',
+    icon: <FcBusinessContact />,
     children: [
       {
         label: "Cara Menjadi Anggota",
-        href: "#",
+        href: "/cara-menjadi-anggota",
       },
       {
         label: "Pemohonan Menjadi Anggota",
-        href: "#",
+        href: "/pengajuan-anggota",
       },
     ],
   },
   {
     label: 'CU News',
+    icon: <FcNews />,
     children: [
       {
         label: "Berita",
-        href: "#",
+        href: "/cu-news",
       },
       {
         label: "Kisah Sukses",
-        href: "#",
+        href: "/kisah-sukses",
       },
     ],
   },
   {
     label: 'Kalkulator',
+    icon: <FcCalculator />,
     children: [
       {
         label: "Kalkulator Kredit dengan Bunga Menurun",
-        href: "#",
+        href: "/kalkulator",
       },
       {
         label: "Kalkulator Kredit dengan Setoran Tetap",
-        href: "#",
+        href: "/kalkulator",
       },
     ],
   },
