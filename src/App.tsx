@@ -21,6 +21,7 @@ const PengajuanAnggota = lazy(() => import('./components/pages/pengajuananggota.
 const ListBerita = lazy(() => import('./components/pages/listberita.page'));
 const KisahSukses = lazy(() => import('./components/pages/kisahsukses.page'));
 const Kalkulator = lazy(() => import('./components/pages/kalkulator.page'));
+const DetailTestimoni = lazy(() => import('./components/pages/detailtestimoni.page'));
 
 import "./assets/global.css"
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path='/' element={<Suspense fallback={<Loading />}><Layout /></Suspense>}>
           <Route path='/' element={<HomePage />} />
           <Route path='/berita/:idBerita' element={<DetailBerita />} />
+          <Route path='/kisah-sukses/:slugTestimoni' element={<DetailTestimoni />} />
           <Route path='/visi-misi' element={<VisiMisiPage />} />
           <Route path='/struktur-organisasi' element={<Struktur />} />
           <Route path='/about-cu' element={<AboutCU />} />

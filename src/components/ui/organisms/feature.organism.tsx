@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Image, Stack, Text, } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Image, Stack, Text, Link, Button } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { cardTestimoniType } from '../../../hooks/interfaces/cardtestimoni.interface';
@@ -7,10 +7,10 @@ interface CardProps {
   heading: string;
   description: string;
   image_url: string;
-
+  slug: string;
 }
 
-const Card = ({ heading, description, image_url }: CardProps) => {
+const Card = ({ heading, description, image_url, slug }: CardProps) => {
   return (
     <Box
       maxW={{ base: 'full', md: '480px' }}
@@ -31,7 +31,10 @@ const Card = ({ heading, description, image_url }: CardProps) => {
         />
         <Box mt={2}>
           <Heading size="md" textAlign={"center"}>{heading}</Heading>
-          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description }} />
+          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description.slice(0, 100) + '...' }} />
+          <Link href={`/kisah-sukses/${slug}`}>
+            <Button w='full' mt={4}>Read More</Button>
+          </Link>
         </Box>
       </Stack>
     </Box>
@@ -62,7 +65,9 @@ export default function Feature() {
         <Flex flexWrap="wrap" gridGap={6} justify="center">
           {
             testimoni.map((result, index) => 
-              <Card key={index} heading={result.title} image_url={result.image_url} description={result.content} />
+              <>
+                <Card key={index} heading={result.title} image_url={result.image_url} description={result.content} slug={result.slug} />
+              </>
             )
           }
         </Flex>
