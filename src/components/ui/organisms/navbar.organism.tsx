@@ -1,7 +1,7 @@
 import { Box, Flex, Text, IconButton, Stack, Collapse, Icon, Link, Popover, PopoverTrigger, PopoverContent, useColorModeValue, useDisclosure, Image } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 
-import headerBackground from '../../../assets/images/Header_Website.jpg';
+import headerBackground from '../../../assets/images/header_new.png';
 import logoCU from '../../../assets/images/Logo_CU.png';
 import { navItemType } from '../../../hooks/interfaces/navitem.interface';
 import { FcAssistant, FcBriefcase, FcBusinessContact, FcCalculator, FcConferenceCall, FcHome, FcNews, FcSalesPerformance } from 'react-icons/fc';
@@ -17,13 +17,13 @@ export default function Navbar() {
         backgroundRepeat={'no-repeat'}
         objectFit={"cover"}
         width={'100%'}
-        h={12}
+        h={16}
         display={'flex'}
         alignItems={'center'}
         justifyContent={'start'}
         ps={24}
       >
-        <Image src={logoCU} w={8} h={8} />
+        <Image src={logoCU} w={10} h={10} />
       </Box>
       <Box>
         <Flex

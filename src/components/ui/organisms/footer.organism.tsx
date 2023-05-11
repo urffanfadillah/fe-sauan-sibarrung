@@ -1,6 +1,7 @@
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
-import { BsFacebook, BsTwitter } from 'react-icons/bs'
+import { BsFacebook, BsTwitter, BsInstagram, BsGlobe, BsYoutube } from 'react-icons/bs'
 import logoCU from '../../../assets/images/Logo_CU.png';
+import imgPartner from '../../../assets/images/Footer-Logo Mitra.png';
 
 const Footer = () => {
   return (
@@ -10,20 +11,31 @@ const Footer = () => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
-      bg="gray.900"
+      bg="yellow.600"
       color="white"
       mt={32}
     >
       <Box>
-        <Flex gap={4} alignItems={'center'}>
-            <Image src={logoCU} w={10} />
-            <Text fontWeight="bold" fontSize="lg">
+        <Flex gap={4} alignItems={'start'} flexDirection={'column'}>
+            <Image src={logoCU} w={16} />
+            <Text fontWeight="bold" fontSize="sm">
                 Credit Union Sauan Sibarrung
             </Text>
+            <Flex alignItems="center" gap={4}>
+              <Box as="a" href="#">
+                <Icon as={BsFacebook} w={6} h={6} />
+              </Box>        
+              <Box as="a" href="#" mr={2}>
+                <Icon as={BsInstagram} w={6} h={6} />
+              </Box>
+              <Box as="a" href="#" mr={2}>
+                <Icon as={BsGlobe} w={6} h={6} />
+              </Box>
+              <Box as="a" href="#" mr={2}>
+                <Icon as={BsYoutube} w={6} h={6} />
+              </Box>
+            </Flex>
         </Flex>
-        <Text fontSize="sm" mt={2}>
-            WVG9+WHW, Tambunan, Kec. Makale Utara, Kabupaten Tana Toraja, Sulawesi Selatan 91812
-        </Text>
       </Box>
 
       <Box>
@@ -31,22 +43,21 @@ const Footer = () => {
           Kontak
         </Text>
         <Text fontSize="sm">
-          Email: example@example.com
+          Alamat: Jl. Pongtiku No. 477b Mandetek, Makele 91811, Tana Toraja, Sulawesi Selatan
         </Text>
-      </Box>
+        <Text fontSize="sm">
+          Email: cusstt@yahoo.com
+        </Text>
+        <Text fontSize="sm">
+          Telp: 0813 5572 0006
+        </Text>
+      </Box>      
 
       <Box>
         <Text fontWeight="bold" fontSize="lg" mb={2}>
-          Ikuti Kami
+          Partner Kami
         </Text>
-        <Flex alignItems="center">
-          <Box as="a" href="#" mr={2}>
-            <Icon as={BsTwitter} w={6} h={6} />
-          </Box>
-          <Box as="a" href="#">
-            <Icon as={BsFacebook} w={6} h={6} />
-          </Box>
-        </Flex>
+        <Image src={imgPartner} width={64}  />
       </Box>
     </Flex>
   );
