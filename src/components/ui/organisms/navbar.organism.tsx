@@ -4,7 +4,15 @@ import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@c
 import headerBackground from '../../../assets/images/header_new.png';
 import logoCU from '../../../assets/images/Logo_CU.png';
 import { navItemType } from '../../../hooks/interfaces/navitem.interface';
-import { FcAssistant, FcBriefcase, FcBusinessContact, FcCalculator, FcConferenceCall, FcHome, FcNews, FcSalesPerformance } from 'react-icons/fc';
+
+import iconHome from "../../../assets/images/Asset WEB/home.png";
+import iconProfile from "../../../assets/images/Asset WEB/Profile.png";
+import iconKaisungan from "../../../assets/images/Asset WEB/kaisungan.png";
+import iconProduk from "../../../assets/images/Asset WEB/produk & pelayanan.png";
+import iconKubn from "../../../assets/images/Asset WEB/KUBn atau Kelompok Binaan.png";
+import iconAnggota from "../../../assets/images/Asset WEB/menjadi anggota.png";
+import iconNews from "../../../assets/images/Asset WEB/cu news.png";
+import iconKalkulator from "../../../assets/images/Asset WEB/kalkulator.png";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -88,7 +96,7 @@ const DesktopNav = () => {
                   color: linkHoverColor,
                 }}>
                 <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>
-                  {navItem.icon}
+                  <Image src={navItem.icon} w={4} h={4} />
                   {navItem.label}
                 </Flex>
               </Link>
@@ -187,8 +195,8 @@ const MobileNavItem = ({ label, icon, children, href }: navItemType) => {
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
         </Text> */}
-        <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>
-          {icon}
+        <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>        
+          <Image src={icon} w={4} h={4} />
           {label}
         </Flex>
         {children && (
@@ -227,11 +235,11 @@ const NAV_ITEMS: Array<navItemType> = [
   {
     label: 'Home',
     href: '/',
-    icon: <FcHome />
+    icon: iconHome
   },
   {
     label: 'Profile',
-    icon:<FcBriefcase />,
+    icon: iconProfile,
     children: [
       {
         label: 'Visi, Misi, Nilai Nilai Inti',
@@ -262,11 +270,11 @@ const NAV_ITEMS: Array<navItemType> = [
   {
     label: 'Kaisungan',
     href: '/kaisungan',
-    icon: <FcConferenceCall />
+    icon: iconKaisungan
   },
   {
     label: 'Produk & Pelayanan',
-    icon: <FcSalesPerformance />,
+    icon: iconProduk,
     children: [
       {
         label: "Produk Simpanan",
@@ -280,7 +288,7 @@ const NAV_ITEMS: Array<navItemType> = [
   },
   {
     label: 'Kelompok Binaan',
-    icon: <FcAssistant />,
+    icon: iconKubn,
     children: [
       {
         label: "Latar Belakang",
@@ -294,7 +302,7 @@ const NAV_ITEMS: Array<navItemType> = [
   },
   {
     label: 'Menjadi Anggota',
-    icon: <FcBusinessContact />,
+    icon: iconAnggota,
     children: [
       {
         label: "Cara Menjadi Anggota",
@@ -308,7 +316,7 @@ const NAV_ITEMS: Array<navItemType> = [
   },
   {
     label: 'CU News',
-    icon: <FcNews />,
+    icon: iconNews,
     children: [
       {
         label: "Berita",
@@ -322,7 +330,7 @@ const NAV_ITEMS: Array<navItemType> = [
   },
   {
     label: 'Kalkulator',
-    icon: <FcCalculator />,
+    icon: iconKalkulator,
     children: [
       {
         label: "Kalkulator Kredit dengan Bunga Menurun",

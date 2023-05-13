@@ -2,26 +2,25 @@ import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { BsFacebook, BsTwitter, BsInstagram, BsGlobe, BsYoutube } from 'react-icons/bs'
 import logoCU from '../../../assets/images/Logo_CU.png';
 import imgPartner from '../../../assets/images/Footer-Logo Mitra.png';
+import imgFooter from '../../../assets/images/Footer-Logo CUSS2.png';
 
 const Footer = () => {
   return (
-    <Flex
-      as="footer"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding="1.5rem"
-      bg="yellow.600"
-      color="white"
-      mt={32}
+    <Flex flexDirection={'column'}>
+      <Flex
+        as="footer"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        padding="1.5rem"
+        bg="yellow.600"
+        color="white"
+        mt={32}
     >
       <Box>
         <Flex gap={4} alignItems={'start'} flexDirection={'column'}>
-            <Image src={logoCU} w={16} />
-            <Text fontWeight="bold" fontSize="sm">
-                Credit Union Sauan Sibarrung
-            </Text>
-            <Flex alignItems="center" gap={4}>
+            <Image src={imgFooter} w={32} />
+            <Flex alignItems="center" gap={4} color={'#000000'}>
               <Box as="a" href="#">
                 <Icon as={BsFacebook} w={6} h={6} />
               </Box>        
@@ -55,10 +54,12 @@ const Footer = () => {
 
       <Box>
         <Text fontWeight="bold" fontSize="lg" mb={2}>
-          Partner Kami
+          Branding Kami
         </Text>
         <Image src={imgPartner} width={64}  />
       </Box>
+      </Flex>
+      <Text py={4} textAlign={'center'} fontWeight={'bold'}>Copyright © 2023 Credit Union Sauan Sibarrung</Text>
     </Flex>
   );
 };
