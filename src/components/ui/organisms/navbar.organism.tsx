@@ -56,7 +56,6 @@ export default function Navbar() {
             />
           </Flex>
           <Flex display={{ base: 'block', md: 'none' }} justifyContent={'center'} alignItems={'center'}>
-            <Image src={logoCU} h={8} />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
