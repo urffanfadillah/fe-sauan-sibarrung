@@ -26,10 +26,10 @@ export default function Home() {
                         <Heading fontSize={'md'} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
                         <Flex flexDirection={{base: 'column', md:'row'}} gap={4}>
                             <Link to={'/kalkulator'}>
-                                <Image src={imgKalkulatorMenurun} width={{base: 'full', md:32}} />
+                                <Image src={imgKalkulatorMenurun} width={{base: 20, md:32}} />
                             </Link>
                             <Link to={'/kalkulator'}>
-                                <Image src={imgKalkulatorTetap} width={{base: 'full', md:32}} />
+                                <Image src={imgKalkulatorTetap} width={{base: 20, md:32}} />
                             </Link>
                         </Flex>
                     </VStack>

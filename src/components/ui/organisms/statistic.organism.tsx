@@ -5,24 +5,25 @@ import {
     Image,
     SimpleGrid,
     Stat,
-    StatLabel,
     StatNumber,
+    Text,
     useColorModeValue,
+    useDimensions,
   } from '@chakra-ui/react';
 import axios from 'axios';
-  import { ReactNode, useEffect, useState } from 'react';
-  import { BsPerson } from 'react-icons/bs';
-  import { FiServer } from 'react-icons/fi';
-  import { GoLocation } from 'react-icons/go';
+  import { useEffect, useState, useRef  } from 'react';      
 
   import iconAsset from "../../../assets/images/Asset WEB/Data statistik/Aset.png";
   import iconAnggota from "../../../assets/images/Asset WEB/Data statistik/anggota.png";
   import iconManajemen from "../../../assets/images/Asset WEB/Data statistik/Manajemen.png";
   import iconAktivis from "../../../assets/images/Asset WEB/Data statistik/aktivis.png";
+  import ScrollTrigger from 'react-scroll-trigger/types';
+  import CountUp from 'react-countup';
   
   interface StatsCardProps {
     title: string;    
     icon: string;
+    text: string;
   }
 
   interface statType {
@@ -30,10 +31,11 @@ import axios from 'axios';
     aset: string;
     manajemen: string;
     aktivis: string;
+    text: string;
   }
 
   function StatsCard(props: StatsCardProps) {
-    const { title, icon } = props;
+    const { title, icon, text } = props;
     return (
       <Stat
         px={{ base: 2, md: 4 }}
@@ -43,17 +45,13 @@ import axios from 'axios';
         borderColor={useColorModeValue('gray.800', 'gray.500')}
         rounded={'lg'}>
         <Flex justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
-          {/* <Box
-            my={'auto'}
-            color={useColorModeValue('gray.800', 'gray.200')}
-            alignContent={'center'}>
-            {icon}
-          </Box> */}
           <Image src={icon} width={12} height={12} />
           <Box pl={{ base: 2, md: 4 }}>
-            <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
-              {title}
+            <StatNumber fontSize={'2xl'} fontWeight={'bold'} textAlign={'center'}>
+              {/* {title} */}
+              <CountUp end={parseInt(title)} duration={12} />
             </StatNumber>
+            <Text textAlign={'center'} fontSize={'lg'}>{text}</Text>
           </Box>
         </Flex>
       </Stat>
@@ -83,18 +81,22 @@ import axios from 'axios';
           <StatsCard
             title={stat?.anggota as string}
             icon={iconAnggota}
+            text={"Anggota"}
           />
           <StatsCard
             title={stat?.aset as string}
             icon={iconAsset}
+            text={"Aset"}
           />
           <StatsCard
             title={stat?.manajemen as string}
             icon={iconManajemen}
+            text={"Manajemen"}
           />
           <StatsCard
             title={stat?.aktivis as string}
             icon={iconAktivis}
+            text={"Aktivis"}
           />
         </SimpleGrid>
       </Box>
