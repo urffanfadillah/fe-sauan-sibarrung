@@ -2,7 +2,7 @@ import { Box, Flex, Text, IconButton, Stack, Collapse, Icon, Link, Popover, Popo
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 
 import headerBackground from '../../../assets/images/header_new.png';
-import logoCU from '../../../assets/images/Logo_CU.png';
+import logoCU from '../../../assets/images/logo_sibarung_header.png';
 import { navItemType } from '../../../hooks/interfaces/navitem.interface';
 
 import iconHome from "../../../assets/images/Asset WEB/home.png";
@@ -31,7 +31,7 @@ export default function Navbar() {
         justifyContent={'start'}
         ps={24}
       >
-        <Image src={logoCU} w={10} h={10} />
+        <Image src={logoCU} h={16} />
       </Box>
       <Box>
         <Flex
@@ -56,8 +56,7 @@ export default function Navbar() {
             />
           </Flex>
           <Flex display={{ base: 'block', md: 'none' }} justifyContent={'center'} alignItems={'center'}>
-            <Image src={logoCU} w={8} h={8} />
-            <Text>CU Sauan Sibarrung</Text>
+            <Image src={logoCU} h={8} />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
