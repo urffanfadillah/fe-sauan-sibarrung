@@ -94,8 +94,8 @@ const DesktopNav = () => {
                   color: linkHoverColor,
                 }}>
                 <Flex mx={6} alignItems={'center'} justifyContent={'center'} gap={2}>
-                  <Image src={navItem.icon} w={4} h={4} />
-                  {navItem.label}
+                  <Image src={navItem.icon} w={6} h={6} />
+                  <Text fontWeight={'bold'} fontSize={'xs'}>{navItem.label}</Text>
                 </Flex>
               </Link>
             </PopoverTrigger>

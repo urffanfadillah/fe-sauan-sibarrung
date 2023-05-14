@@ -1,4 +1,4 @@
-import { Container, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Container, Flex, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import Navigation from "../ui/molecules/navigation.molecule";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -35,13 +35,15 @@ export default function ProdukSimpanan() {
                         href: "/produk-simpanan",
                         name: data?.title as string,
                     }
-                ]} />                
+                ]} />
             </Flex>
-            <VStack spacing={4} py={4}>
-                <Heading textAlign={'center'}>{data?.title}</Heading>
-                <Text fontSize={'xs'}>{}</Text>
-                <Text dangerouslySetInnerHTML={{__html: data?.content as string}} />
-            </VStack>
+            <Flex flexDirection={{base: 'column', md: 'row'}}>
+                <VStack spacing={4} py={4} maxW={{ base: 'full', md: '70%' }}>
+                    <Heading textAlign={'center'}>{data?.title}</Heading>
+                    <Text fontSize={'xs'}>{}</Text>
+                    <Text dangerouslySetInnerHTML={{__html: data?.content as string}} />
+                </VStack>
+            </Flex>
         </Container>
     )
 }

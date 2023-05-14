@@ -45,7 +45,7 @@ import axios from 'axios';
         borderColor={useColorModeValue('gray.800', 'gray.500')}
         rounded={'lg'}>
         <Flex justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
-          <Image src={icon} width={12} height={12} />
+          <Image src={icon} height={12} mb={'2'} />
           <Box pl={{ base: 2, md: 4 }}>
             <StatNumber fontSize={'2xl'} fontWeight={'bold'} textAlign={'center'}>
               {/* {title} */}

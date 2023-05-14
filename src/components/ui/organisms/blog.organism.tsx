@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container } from '@chakra-ui/react';
+import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Button } from '@chakra-ui/react';
 import { blogAuthorType } from '../../../hooks/interfaces/blogauthor.interface';
 import { beritaType } from '../../../hooks/interfaces/berita.interface';
 import axios from "axios";
@@ -33,7 +33,7 @@ const Blog = () => {
       <Wrap spacing="30px" marginTop="5">
         {
           berita.map((result, index) =>
-            <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }} key={index}>
+            <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '25%' }} key={index} border={'1px solid #333333'} p={2} borderRadius={'lg'}>
               <Box w="100%">
                 <Box borderRadius="lg" overflow="hidden">
                   <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
@@ -61,6 +61,13 @@ const Blog = () => {
                   name="Admin"
                   date={new Date(result.created_at)}
                 />
+                <Box width={'full'} display={'flex'} justifyContent={'center'} alignItems={'center'} my={2}>
+                  <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
+                    <Button variant={'solid'} backgroundColor={'#333333'} color={'#ffffff'} _hover={{backgroundColor: '#ffffff', color: '#333333'}}>
+                      Selengkapnya
+                    </Button>
+                  </Link>
+                </Box>
               </Box>
             </WrapItem>
           )
