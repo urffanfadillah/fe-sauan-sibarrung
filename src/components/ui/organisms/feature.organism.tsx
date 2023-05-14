@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Heading, Image, Stack, Text, Link, Button, HStack } from '@chakra-ui/react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { cardTestimoniType } from '../../../hooks/interfaces/cardtestimoni.interface';
 import Slider from 'react-slick';
 
@@ -26,28 +26,27 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
   return (
     <>
       <Box
-        maxW={{ base: 'full' }}        
-        borderWidth="1px"
-        borderRadius="lg"
+        maxW={{ base: 'full' }}
         overflow="hidden"
         p={5}
         backgroundColor={"#ffffff"}
-        border={"1px solid #e7e7e7"}
       >
         <HStack align={'center'} spacing={4}>
-          <Box mt={2}>
+          <Box p={2} backgroundColor={'#f0f0f0'}>
             <Heading size="md" textAlign={"center"}>{heading}</Heading>
             <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description.slice(0, 100) + '...' }} />
             <Link href={`/kisah-sukses/${slug}`}>
               <Button w='full' mt={4}>Read More</Button>
             </Link>
           </Box>
-          <Image
-            src={image_url}
-            w={48}
-            h={48}
-            rounded={'lg'}
-          />
+          <Box p={4} backgroundColor={'#f0f0f0'}>
+            <Image
+              src={image_url}
+              w={80}
+              h={48}
+              rounded={'lg'}                          
+            />
+          </Box>
         </HStack>
       </Box>
     </>
@@ -78,12 +77,12 @@ export default function Feature() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      <Box py={4} backgroundColor={"#f0f0f0"}>
+      <Box py={4} maxW={'full'}>
         <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'} textAlign={'center'}>
           Testimonials
         </Heading>
 
-        <Container p={10}>
+        <Container py={8} px={6} border={'transparent'}>
           <Slider {...settings}>
             {
               testimoni.map((result, index) =>               

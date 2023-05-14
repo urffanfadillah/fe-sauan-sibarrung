@@ -22,7 +22,7 @@ export default function Home() {
             <Statistic />
             <Container maxW={'6xl'} py={6}>
                 <Flex flexDirection={{base: 'column', md:'row'}} gap={6}>
-                    <VStack spacing={12} width={{base: 'full', md: '40%'}}>
+                    <VStack spacing={12} width={{base: 'full', md: '30%'}}>
                         <Heading fontSize={'md'} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
                         <Flex flexDirection={{base: 'column', md:'row'}} gap={4}>
                             <Link to={'/kalkulator'}>
@@ -33,7 +33,7 @@ export default function Home() {
                             </Link>
                         </Flex>
                     </VStack>
-                    <VStack width={{base: 'full', md: '60%'}}>
+                    <VStack width={{base: 'full', md: '70%'}}>
                         <Feature />
                     </VStack>
                 </Flex>
