@@ -21,9 +21,9 @@ export default function Home() {
             <Videos />
             <Statistic />
             <Container maxW={'6xl'} py={6}>
-                <Flex flexDirection={{base: 'column', md:'row'}} gap={6}>
+                <Flex flexDirection={{base: 'column', md:'row'}} gap={6} justifyContent={'center'} alignItems={'center'}>
                     <VStack spacing={12} width={{base: 'full', md: '30%'}}>
-                        <Heading fontSize={'md'} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
+                        <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
                         <Flex flexDirection={{base: 'column', md:'row'}} gap={4}>
                             <Link to={'/kalkulator'}>
                                 <Image src={imgKalkulatorMenurun} width={{base: 20, md:32}} />
