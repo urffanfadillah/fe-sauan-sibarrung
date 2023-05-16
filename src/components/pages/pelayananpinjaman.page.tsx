@@ -5,7 +5,8 @@ import axios from "axios";
 
 interface produkTypes {
     title: string;
-    content: string;    
+    content: string;
+    image_url: string;
 }
 
 export default function PelayananPinjaman() {    
@@ -37,11 +38,16 @@ export default function PelayananPinjaman() {
                     }
                 ]} />                
             </Flex>
-            <VStack spacing={4} py={4}>
-                <Heading textAlign={'center'}>{data?.title}</Heading>
-                <Text fontSize={'xs'}>{}</Text>
-                <Text dangerouslySetInnerHTML={{__html: data?.content as string}} />
-            </VStack>
+            <Flex flexDirection={{base: 'column', md: 'row'}}>
+                <VStack spacing={4} py={4} maxW={{ base: 'full', md: '70%' }}>
+                    <Heading textAlign={'center'}>{data?.title}</Heading>
+                    <Text fontSize={'xs'}>{}</Text>
+                    <Text dangerouslySetInnerHTML={{__html: data?.content as string}} />
+                </VStack>
+                <VStack maxW={{ base: 'full', md: '30%' }} py={4}>
+                    <Image src={data?.image_url} />
+                </VStack>
+            </Flex>
         </Container>
     )
 }

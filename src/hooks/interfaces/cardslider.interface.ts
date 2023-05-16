@@ -1,5 +1,6 @@
 export interface cardSliderType {
-    title: string;
-    content: string;
+    image: string;
+    link: string;
+    slug: string;
     image_url: string;
 }

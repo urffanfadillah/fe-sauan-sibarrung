@@ -1,59 +1,42 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Box, IconButton, useBreakpointValue, Stack, Heading, Text, Container } from '@chakra-ui/react';
+import { Box, IconButton, useBreakpointValue, Stack, Heading, Text, Container, Button } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import axios from 'axios';
 import { cardSliderType } from '../../../hooks/interfaces/cardslider.interface';
-
-// Settings for the slider
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 3000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+import { Link } from 'react-router-dom';
 
 export default function CaptionCarousel() {    
   const [slider, setSlider] = React.useState<Slider | null>(null);  
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
   const [cards, setCards] = React.useState<cardSliderType[]>([]);
+  const [duration, setDuration] = React.useState<string>('');
 
   React.useEffect(() => {
     axios.get(`${import.meta.env.VITE_ENDPOINT}slider`)
       .then((response) => {
-        setCards(response.data.data.data);
+        setDuration(response.data.slider_duration);
+        setCards(response.data.data);
+        console.log(parseInt(duration));
+        // const num: number = parseInt(duration);
+        // setParsedValue(num);
+        // console.log(parsedValue);
       });
   }, []);
 
-  // const cards = [
-  //   {
-  //     title: 'Test Slider 1',
-  //     text:
-  //       "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-  //     image:
-  //       'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  //   },
-  //   {
-  //     title: 'Test Slider 2',
-  //     text:
-  //       "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-  //     image:
-  //       'https://plus.unsplash.com/premium_photo-1661771825670-1720428a80ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG9mZmljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  //   },
-  //   {
-  //     title: 'Test Slider 3',
-  //     text:
-  //       "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-  //     image:
-  //       'https://images.unsplash.com/photo-1564069114553-7215e1ff1890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
-  //   },
-  // ];
+  // Settings for the slider
+  const settings = {
+    dots: true,
+    arrows: false,
+    fade: true,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 7 * 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <Box
@@ -61,6 +44,7 @@ export default function CaptionCarousel() {
       height={'420px'}
       width={'full'}
       overflow={'hidden'}>
+      {duration}
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -120,10 +104,15 @@ export default function CaptionCarousel() {
                 backgroundColor={'#00000080'}
                 rounded={'lg'}
               >
-                <Heading fontSize={{ base: 'sm' }} color="#ffffff">
-                  {card.title}
-                </Heading>
-                <Text fontSize={{ base: 'xs'}} color="#ffffff" isTruncated dangerouslySetInnerHTML={{ __html: card.content.slice(0, 100) + '...' }} />
+                {
+                  card.link && (
+                    <Link to={card.link} target='_blank'>
+                      <Button>
+                        Kunjungi
+                      </Button>
+                    </Link>
+                  )
+                }
               </Stack>
             </Container>
           </Box>

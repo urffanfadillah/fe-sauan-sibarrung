@@ -3,6 +3,7 @@ import { BsFacebook, BsTwitter, BsInstagram, BsGlobe, BsYoutube } from 'react-ic
 import logoCU from '../../../assets/images/Logo_CU.png';
 import imgPartner from '../../../assets/images/Footer-Logo Mitra.png';
 import imgFooter from '../../../assets/images/Footer-Logo CUSS2.png';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -37,6 +38,32 @@ const Footer = () => {
         </Flex>
       </Box>
 
+      <Box>
+        <Text fontWeight="bold" fontSize="lg" mb={2}>
+          Menu
+        </Text>
+        <Link to={'/about-cu'}>
+          <Text fontSize="sm">
+            Tentang CU
+          </Text>        
+        </Link>
+        <Link to={'/about-cuss'}>
+          <Text fontSize="sm">
+            Tentang CUSS
+          </Text>        
+        </Link>
+        <Link to={'/cara-menjadi-anggota'}>
+          <Text fontSize="sm">
+            Cara Menjadi Anggota
+          </Text>        
+        </Link>
+        <Link to={'/kontak'}>
+          <Text fontSize="sm">
+            Kontak
+          </Text>        
+        </Link>
+      </Box>
+      
       <Box>
         <Text fontWeight="bold" fontSize="lg" mb={2}>
           Kontak

@@ -22,6 +22,7 @@ const ListBerita = lazy(() => import('./components/pages/listberita.page'));
 const KisahSukses = lazy(() => import('./components/pages/kisahsukses.page'));
 const Kalkulator = lazy(() => import('./components/pages/kalkulator.page'));
 const DetailTestimoni = lazy(() => import('./components/pages/detailtestimoni.page'));
+const Kontak = lazy(() => import('./components/pages/kontak.page'));
 
 import "./assets/global.css"
 
@@ -49,6 +50,7 @@ export default function App() {
           <Route path='/cu-news' element={<ListBerita />} />
           <Route path='/kisah-sukses' element={<KisahSukses />}/>
           <Route path='/kalkulator' element={<Kalkulator />} />
+          <Route path='/kontak' element={<Kontak />} />
         </Route>
       </Routes>
     </Router>

@@ -31,7 +31,7 @@ export default function Navbar() {
         justifyContent={'start'}
         ps={24}
       >
-        <Image src={logoCU} h={16} />
+        <Image src={logoCU} h={10} />
       </Box>
       <Box>
         <Flex
