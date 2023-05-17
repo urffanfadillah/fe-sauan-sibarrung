@@ -82,37 +82,39 @@ export default function CaptionCarousel() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
-          <Box
-            key={index}            
-            position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${card.image_url})`}
-            height='700px'
-          >
-            {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="700px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
-              {/* <Stack
-                spacing={2}
-                w={'fit-content'}
-                p={8}
-                mb={4}
-                backgroundColor={'#00000080'}
-                rounded={'lg'}
-              >
-                {
-                  card.link && (
-                    <Link to={card.link} target='_blank'>
-                      <Button>
-                        Kunjungi
-                      </Button>
-                    </Link>
-                  )
-                }
-              </Stack> */}
-            </Container>
-          </Box>
+          <Link to={card.link} >
+            <Box
+              key={index}            
+              position="relative"
+              backgroundPosition="center"
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              backgroundImage={`url(${card.image_url})`}
+              height='700px'
+            >
+              {/* This is the block you need to change, to customize the caption */}
+              <Container size="container.lg" height="700px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
+                {/* <Stack
+                  spacing={2}
+                  w={'fit-content'}
+                  p={8}
+                  mb={4}
+                  backgroundColor={'#00000080'}
+                  rounded={'lg'}
+                >
+                  {
+                    card.link && (
+                      <Link to={card.link} target='_blank'>
+                        <Button>
+                          Kunjungi
+                        </Button>
+                      </Link>
+                    )
+                  }
+                </Stack> */}
+              </Container>
+            </Box>
+          </Link>
         ))}
       </Slider>
     </Box>
