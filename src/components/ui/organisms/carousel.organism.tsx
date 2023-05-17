@@ -19,9 +19,6 @@ export default function CaptionCarousel() {
         setDuration(response.data.slider_duration);
         setCards(response.data.data);
         console.log(parseInt(duration));
-        // const num: number = parseInt(duration);
-        // setParsedValue(num);
-        // console.log(parsedValue);
       });
   }, []);
 
@@ -41,10 +38,9 @@ export default function CaptionCarousel() {
   return (
     <Box
       position={'relative'}
-      height={'420px'}
+      height={'700px'}
       width={'full'}
       overflow={'hidden'}>
-      {duration}
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -93,10 +89,11 @@ export default function CaptionCarousel() {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image_url})`}
+            height='700px'
           >
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="420px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
-              <Stack
+            <Container size="container.lg" height="700px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
+              {/* <Stack
                 spacing={2}
                 w={'fit-content'}
                 p={8}
@@ -113,7 +110,7 @@ export default function CaptionCarousel() {
                     </Link>
                   )
                 }
-              </Stack>
+              </Stack> */}
             </Container>
           </Box>
         ))}
