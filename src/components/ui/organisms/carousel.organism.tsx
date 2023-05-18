@@ -11,14 +11,14 @@ export default function CaptionCarousel() {
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
   const [cards, setCards] = React.useState<cardSliderType[]>([]);
-  const [duration, setDuration] = React.useState<string>('');
+  const [duration, setDuration] = React.useState<number>(0);
 
   React.useEffect(() => {
     axios.get(`${import.meta.env.VITE_ENDPOINT}slider`)
       .then((response) => {
         setDuration(response.data.slider_duration);
         setCards(response.data.data);
-        console.log(parseInt(duration));
+        console.log(duration);
       });
   }, []);
 
@@ -30,7 +30,7 @@ export default function CaptionCarousel() {
     infinite: true,
     autoplay: true,
     speed: 500,
-    autoplaySpeed: 7 * 1000,
+    autoplaySpeed: duration * 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
   };

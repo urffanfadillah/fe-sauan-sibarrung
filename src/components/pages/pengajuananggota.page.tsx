@@ -383,67 +383,67 @@ export default function PengajuanAnggota() {
                         <Input type='text' required {...register("sawah")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabang CUSS</FormLabel>
+                        <FormLabel>Tabungan anggota CUSS</FormLabel>
                         <Input type='text' required {...register("tabang_cuss")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabpas CUSS</FormLabel>
+                        <FormLabel>Tabungan pasangan CUSS</FormLabel>
                         <Input type='text' required {...register("tabpas_cuss")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabadt CUSS</FormLabel>
+                        <FormLabel>Tabungan anak dalam tanggungan CUSS</FormLabel>
                         <Input type='text' required {...register("tabadt_cuss")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Totsim CUSS</FormLabel>
+                        <FormLabel>Total simpanan CUSS</FormLabel>
                         <Input type='text' required {...register("totsim_cuss")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabang Bank</FormLabel>
+                        <FormLabel>Tabungan anggota Bank</FormLabel>
                         <Input type='text' required {...register("tabang_bank")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabpas Bank</FormLabel>
+                        <FormLabel>Tabungan pasangan Bank</FormLabel>
                         <Input type='text' required {...register("tabpas_bank")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabadt Bank</FormLabel>
+                        <FormLabel>Tabungan anak dalam tanggungan Bank</FormLabel>
                         <Input type='text' required {...register("tabadt_bank")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Totsim Bank</FormLabel>
+                        <FormLabel>Total simpanan Bank</FormLabel>
                         <Input type='text' required {...register("totsim_bank")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabang KOP</FormLabel>
+                        <FormLabel>Tabungan anggota Koperasi</FormLabel>
                         <Input type='text' required {...register("tabang_kop")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabpas KOP</FormLabel>
+                        <FormLabel>Tabungan pasangan Koperasi</FormLabel>
                         <Input type='text' required {...register("tabpas_kop")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabadt KOP</FormLabel>
+                        <FormLabel>Tabungan anak dalam tanggungan Koperasi</FormLabel>
                         <Input type='text' required {...register("tabadt_kop")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Totsim KOP</FormLabel>
+                        <FormLabel>Total simpanan Koperasi</FormLabel>
                         <Input type='text' required {...register("totsim_kop")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabang Lain</FormLabel>
+                        <FormLabel>Tabungan  tempat lain</FormLabel>
                         <Input type='text' required {...register("tabang_lain")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabpas Lain</FormLabel>
+                        <FormLabel>Tabungan pasangan tempat lain</FormLabel>
                         <Input type='text' required {...register("tabpas_lain")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Tabadt Lain</FormLabel>
+                        <FormLabel>Tabungan anak dalam tanggungan tempat lain</FormLabel>
                         <Input type='text' required {...register("tabadt_lain")} />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>Totsim Lain</FormLabel>
+                        <FormLabel>Total simpanan tempat lain</FormLabel>
                         <Input type='text' required {...register("totsim_lain")} />
                     </FormControl>
                     <FormControl>

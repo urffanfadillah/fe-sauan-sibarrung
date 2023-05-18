@@ -77,7 +77,7 @@ import axios from 'axios';
           fontWeight={'bold'}>
           Data Statistik
         </chakra.h1>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
+        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
           <StatsCard
             title={stat?.anggota as string}
             icon={iconAnggota}
