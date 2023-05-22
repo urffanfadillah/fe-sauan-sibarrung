@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Box, IconButton, useBreakpointValue, Stack, Heading, Text, Container, Button } from '@chakra-ui/react';
+import { Box, IconButton, useBreakpointValue, Stack, Heading, Text, Container, Button, Image } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import axios from 'axios';
 import { cardSliderType } from '../../../hooks/interfaces/cardslider.interface';
@@ -38,7 +38,7 @@ export default function CaptionCarousel() {
   return (
     <Box
       position={'relative'}
-      height={'700px'}
+      height={{base: '200px', md:'700px'}}
       width={'full'}
       overflow={'hidden'}>
       {/* CSS files for react-slick */}
@@ -82,39 +82,19 @@ export default function CaptionCarousel() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
-          <Link to={card.link} >
-            <Box
-              key={index}            
-              position="relative"
-              backgroundPosition="center"
-              backgroundRepeat="no-repeat"
-              backgroundSize="cover"
-              backgroundImage={`url(${card.image_url})`}
-              height='700px'
-            >
-              {/* This is the block you need to change, to customize the caption */}
-              <Container size="container.lg" height="700px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
-                {/* <Stack
-                  spacing={2}
-                  w={'fit-content'}
-                  p={8}
-                  mb={4}
-                  backgroundColor={'#00000080'}
-                  rounded={'lg'}
-                >
-                  {
-                    card.link && (
-                      <Link to={card.link} target='_blank'>
-                        <Button>
-                          Kunjungi
-                        </Button>
-                      </Link>
-                    )
-                  }
-                </Stack> */}
-              </Container>
-            </Box>
-          </Link>
+          <Image key={index} width={'full'} height={{base: '200px', md:'700px'}} src={card.image_url} objectFit={'cover'} />
+          // <Link to={card.link} key={index} >
+          //   <Box
+          //     key={index}            
+          //     position="relative"
+          //     backgroundPosition={'center'}
+          //     backgroundImage={`url(${card.image_url})`}
+          //     height='700px'
+          //   >
+          //     <Container size="container.lg" height="700px" position="relative" display={'flex'} justifyContent={'center'} alignItems={'end'}>
+          //     </Container>
+          //   </Box>
+          // </Link>
         ))}
       </Slider>
     </Box>

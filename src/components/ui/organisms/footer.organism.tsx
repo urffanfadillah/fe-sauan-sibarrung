@@ -18,7 +18,7 @@ const Footer = () => {
         color="white"
         mt={32}
     >
-      <Box>
+      <Box ps={16}>
         <Flex gap={4} alignItems={'start'} flexDirection={'column'}>
             <Image src={imgFooter} w={32} />
             <Flex alignItems="center" gap={4} color={'#000000'}>
