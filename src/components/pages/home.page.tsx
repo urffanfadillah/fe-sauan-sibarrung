@@ -17,7 +17,7 @@ export default function Home() {
             <Blog />
             <Image src={imgVisiMisi} width={'6xl'} mx={'auto'} />
             <Heading my={12} textAlign={'center'}>Struktur Pengurus & Pengawas</Heading>
-            <Image src={imgPengurus} maxW={'6xl'} mx={'auto'} />
+            <Image src={imgPengurus} maxW={{base: 'full', md:'6xl'}} mx={'auto'} />
             <Videos />
             <Statistic />
             <Container maxW={'6xl'} py={6}>

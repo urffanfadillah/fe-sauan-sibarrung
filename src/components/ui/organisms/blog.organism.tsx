@@ -25,17 +25,17 @@ const Blog = () => {
   }, [])
 
   return (
-    <Container maxW={'7xl'} p="12">
+    <Container maxW={'6xl'}>
       <Heading as="h2" marginTop="5">
         Berita Terbaru
       </Heading>
       <Divider marginTop="5" />
-      <Wrap spacing="30px" marginTop="5">
+      <Wrap marginTop="5" gap={'8'} px={{ base: '4', md: '0' }}>
         {
           berita.map((result, index) =>
             <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '25%' }} key={index} border={'1px solid #333333'} p={2} borderRadius={'lg'}>
               <Box w="100%">
-                <Box borderRadius="lg" overflow="hidden">
+                <Box borderRadius="lg">
                   <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
                     <Image
                       transform="scale(1.0)"
