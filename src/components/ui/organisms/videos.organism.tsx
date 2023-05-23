@@ -9,24 +9,28 @@ export default function Videos() {
                     <iframe
                         src='https://www.youtube.com/embed/W071ozUXZDw'
                         allowFullScreen
+                        style={{borderRadius: '32px'}}
                     />
                 </AspectRatio>
                 <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
                     <iframe
                         src='https://www.youtube.com/embed/_CbTcFbICwk'
                         allowFullScreen
+                        style={{borderRadius: '32px'}}
                     />
                 </AspectRatio>
                 <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
                     <iframe
                         src='https://www.youtube.com/embed/sIyBIZJWAsY'
                         allowFullScreen
+                        style={{borderRadius: '32px'}}
                     />
                 </AspectRatio>
                 <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
                     <iframe
                         src='https://www.youtube.com/embed/Wxb7gnRgcN4'
                         allowFullScreen
+                        style={{borderRadius: '32px'}}
                     />
                 </AspectRatio>
             </SimpleGrid>

@@ -10,14 +10,14 @@ import {
     useColorModeValue,
     useDimensions,
   } from '@chakra-ui/react';
-import axios from 'axios';
+  import axios from 'axios';
   import { useEffect, useState, useRef  } from 'react';      
 
   import iconAsset from "../../../assets/images/Asset WEB/Data statistik/Aset.png";
   import iconAnggota from "../../../assets/images/Asset WEB/Data statistik/anggota.png";
   import iconManajemen from "../../../assets/images/Asset WEB/Data statistik/Manajemen.png";
-  import iconAktivis from "../../../assets/images/Asset WEB/Data statistik/aktivis.png";
-  import ScrollTrigger from 'react-scroll-trigger/types';
+  import iconAktivis from "../../../assets/images/Asset WEB/Data statistik/aktivis.png";  
+  import { useInView } from 'react-intersection-observer';
   import CountUp from 'react-countup';
   
   interface StatsCardProps {
@@ -27,15 +27,20 @@ import axios from 'axios';
   }
 
   interface statType {
-    anggota: string;
-    aset: string;
-    manajemen: string;
-    aktivis: string;
+    anggota_str: string;
+    anggota_val: string;
+    aset_str: string;
+    aset_val: string;
+    manajemen_str: string;
+    manajemen_val: string;
+    aktivis_str: string;
+    aktivis_val: string;
     text: string;
   }
 
   function StatsCard(props: StatsCardProps) {
     const { title, icon, text } = props;
+    const [ref, inView] = useInView();
     return (
       <Stat
         px={{ base: 2, md: 4 }}
@@ -46,11 +51,14 @@ import axios from 'axios';
         rounded={'lg'}>
         <Flex justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
           <Image src={icon} height={12} mb={'2'} />
-          <Box pl={{ base: 2, md: 4 }}>
-            <StatNumber fontSize={'2xl'} fontWeight={'bold'} textAlign={'center'}>
-              {/* {title} */}
-              <CountUp end={parseInt(title)} duration={12} />
-            </StatNumber>
+          <Box pl={{ base: 2, md: 4 }} ref={ref}>
+            {
+              inView && (
+                <StatNumber fontSize={'2xl'} fontWeight={'bold'} textAlign={'center'}>
+                  <CountUp end={parseInt(title)} duration={12} />
+                </StatNumber>
+              )
+            }
             <Text textAlign={'center'} fontSize={'lg'}>{text}</Text>
           </Box>
         </Flex>
@@ -79,24 +87,24 @@ import axios from 'axios';
         </chakra.h1>
         <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
           <StatsCard
-            title={stat?.anggota as string}
+            title={stat?.anggota_val as string}
             icon={iconAnggota}
-            text={"Anggota"}
+            text={stat?.anggota_str as string}
           />
           <StatsCard
-            title={stat?.aset as string}
+            title={stat?.aset_val as string}
             icon={iconAsset}
-            text={"Aset"}
+            text={stat?.aset_str as string}
           />
           <StatsCard
-            title={stat?.manajemen as string}
+            title={stat?.manajemen_val as string}
             icon={iconManajemen}
-            text={"Manajemen"}
+            text={stat?.manajemen_str as string}
           />
           <StatsCard
-            title={stat?.aktivis as string}
+            title={stat?.aktivis_val as string}
             icon={iconAktivis}
-            text={"Aktivis"}
+            text={stat?.aktivis_str as string}
           />
         </SimpleGrid>
       </Box>

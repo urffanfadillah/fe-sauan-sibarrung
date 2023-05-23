@@ -1,8 +1,9 @@
-import { Box, Container, Flex, Heading, Image, Stack, Text, Link, Button, HStack } from '@chakra-ui/react';
+import { Box, Container, Heading, Image, Text } from '@chakra-ui/react';
 import axios from 'axios';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { cardTestimoniType } from '../../../hooks/interfaces/cardtestimoni.interface';
 import Slider from 'react-slick';
+import { ImQuotesRight } from "react-icons/im";
 
 interface CardProps {
   heading: string;
@@ -26,28 +27,40 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
   return (
     <>
       <Box
-        maxW={{ base: 'full' }}
+        maxW={{ base: '6xl' }}
         overflow="hidden"
-        p={5}
-        backgroundColor={"#ffffff"}
+        h={{base: 'fit-content', md: 420}}
+        display={'flex'}
+        flexDirection={{base: 'column', md: 'row'}}
+        justifyContent={'center'}
+        alignItems={'center'}
+        gap={6}
+        backgroundColor={'#f0f0f0'}
+        borderRadius={'lg'}
+        position={'relative'}
       >
-        <HStack align={'center'} spacing={4}>
-          <Box p={2} backgroundColor={'#f0f0f0'}>
-            <Heading size="md" textAlign={"center"}>{heading}</Heading>
-            <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description.slice(0, 100) + '...' }} />
-            <Link href={`/kisah-sukses/${slug}`}>
-              <Button w='full' mt={4}>Read More</Button>
-            </Link>
-          </Box>
-          <Box p={4} backgroundColor={'#f0f0f0'}>
-            <Image
-              src={image_url}
-              w={80}
-              h={48}
-              rounded={'lg'}                          
-            />
-          </Box>
-        </HStack>
+        <Box p={4}>
+          <Image
+            src={image_url}
+            maxW={{base: 'full', md: '240px'}}
+            h={{base: 'full', md: '240px'}}
+            rounded={'lg'}                          
+          />
+        </Box>
+        <Box p={2}>
+          <Heading size="md" textAlign={"center"}>{heading}</Heading>
+          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description.slice(0, 1000) }} />
+        </Box>
+        <Box
+          position={{base:"relative", md: "absolute"}}
+          bottom="0"
+          right="0"
+          ps={{base: 8, md: 0}}
+          pb={8}
+          pe={8}
+        >
+          <ImQuotesRight fontSize={64} />
+        </Box>
       </Box>
     </>
   );
@@ -82,7 +95,7 @@ export default function Feature() {
           Testimonials
         </Heading>
 
-        <Container py={8} px={6} border={'transparent'}>
+        <Container py={8} px={6} border={'transparent'} maxW={'full'}>
           <Slider {...settings}>
             {
               testimoni.map((result, index) =>               

@@ -7,7 +7,7 @@ import axios from "axios";
 interface detailBeritaTypes {
     title: string;
     content: string;
-    created_at: Date;
+    created_at: string;
 }
 
 export default function DetailBerita() {
@@ -42,7 +42,7 @@ export default function DetailBerita() {
             </Flex>
             <VStack spacing={4} py={4}>
                 <Heading textAlign={'center'}>{detailBerita?.title}</Heading>
-                <Text fontSize={'xs'}>{detailBerita?.created_at.toLocaleDateString()}</Text>
+                <Text fontSize={'xs'}>{new Date(detailBerita?.created_at as string).toLocaleDateString()}</Text>
                 <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />
             </VStack>
         </Container>

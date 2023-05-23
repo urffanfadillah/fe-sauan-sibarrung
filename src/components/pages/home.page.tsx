@@ -21,20 +21,20 @@ export default function Home() {
             <Videos />
             <Statistic />
             <Container maxW={'6xl'} py={6}>
-                <Flex flexDirection={{base: 'column', md:'row'}} gap={6} justifyContent={'center'} alignItems={'center'}>
-                    <VStack spacing={12} width={{base: 'full', md: '30%'}}>
+                <Flex flexDirection={{base: 'column'}} gap={6} justifyContent={'center'} alignItems={'center'}>
+                    <VStack width={{base: 'full'}}>
+                        <Feature />
+                    </VStack>
+                    <VStack spacing={12} width={{base: 'full'}}>
                         <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
-                        <Flex flexDirection={{base: 'column', md:'row'}} gap={4}>
+                        <Flex flexDirection={{base: 'column', md:'row'}} justifyContent={'space-around'} alignItems={'center'} w={'full'} gap={{base: 16, md: 0}}>
                             <Link to={'/kalkulator'}>
-                                <Image src={imgKalkulatorMenurun} width={{base: 20, md:32}} />
+                                <Image src={imgKalkulatorMenurun} width={{base: 32, md:48}} />
                             </Link>
                             <Link to={'/kalkulator'}>
-                                <Image src={imgKalkulatorTetap} width={{base: 20, md:32}} />
+                                <Image src={imgKalkulatorTetap} width={{base: 32, md:48}} />
                             </Link>
                         </Flex>
-                    </VStack>
-                    <VStack width={{base: 'full', md: '70%'}}>
-                        <Feature />
                     </VStack>
                 </Flex>
             </Container>
