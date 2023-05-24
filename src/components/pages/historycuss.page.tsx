@@ -40,7 +40,7 @@ export default function HistoryCUSS() {
                 >
                 <Stack align={'center'} spacing={4}>
                     <Box mt={2}>
-                        <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: data?.data.content as string }} />
+                        <Text mt={1} fontSize={'sm'} dangerouslySetInnerHTML={{ __html: data?.data.content as string }} />
                     </Box>
                 </Stack>
             </Box>

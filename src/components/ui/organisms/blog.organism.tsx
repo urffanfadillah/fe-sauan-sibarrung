@@ -21,8 +21,7 @@ const Blog = () => {
         setBerita(response.data.data.data);
       });
     }, [])
-    
-  const sortedItems = berita.reverse();
+      
   return (
     <Container maxW={'6xl'}>
       <Heading as="h2" marginTop="5">
@@ -31,7 +30,7 @@ const Blog = () => {
       <Divider marginTop="5" />
       <Wrap marginTop="5" gap={'8'} px={{ base: '4', md: '0' }}>
         {
-          sortedItems.map((result, index) =>
+          berita.map((result, index) =>
             <WrapItem 
               width={{ base: '100%', sm: '45%', md: '45%', lg: '25%' }} 
               key={index} 

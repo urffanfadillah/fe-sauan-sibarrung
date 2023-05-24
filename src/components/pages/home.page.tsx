@@ -25,7 +25,7 @@ export default function Home() {
         <>
             <Carousel />
             <Blog />
-            <Image src={imgVisiMisi} width={'6xl'} mx={'auto'} />
+            <Image src={imgVisiMisi} maxW={{base: 'full', md:'6xl'}} mx={'auto'} />
             <Heading my={12} textAlign={'center'}>Struktur Pengurus & Pengawas</Heading>
             <Image src={imgPengurus} maxW={{base: 'full', md:'6xl'}} mx={'auto'} />
             <Videos />

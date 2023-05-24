@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import Navigation from "../ui/molecules/navigation.molecule";
 import { useEffect, useState } from "react";
 import { aboutInfoType } from "../../hooks/interfaces/aboutinfo.interface";
@@ -38,11 +38,12 @@ export default function Pengurus() {
                 backgroundColor={"#ffffff"}
                 border={"1px solid #e7e7e7"}                
             >
-                <Stack align={'center'} spacing={4}>
+                {/* <Stack align={'center'} spacing={4}>
                     <Box mt={2}>                        
                         <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: data?.data.content as string }} />
                     </Box>
-                </Stack>
+                </Stack> */}
+                <Image src={data?.data.image_url} width={'6xl'} mx={'auto'} />
             </Box>
         </Container>
     )

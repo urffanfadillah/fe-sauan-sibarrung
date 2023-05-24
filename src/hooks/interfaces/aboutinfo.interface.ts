@@ -3,5 +3,6 @@ export interface aboutInfoType {
     message: string;
     data: {
         content: string;
+        image_url: string;
     };
 }

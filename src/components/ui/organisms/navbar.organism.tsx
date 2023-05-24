@@ -33,7 +33,12 @@ export default function Navbar() {
       >
         <Image src={logoCU} h={10} />
       </Box>
-      <Box>
+      <Box
+        position="sticky"
+        top="0"
+        zIndex="999"
+        borderBottom={'1px solid #e7e7e7'}
+      >
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}

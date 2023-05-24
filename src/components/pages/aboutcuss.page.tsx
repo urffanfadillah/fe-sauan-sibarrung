@@ -40,7 +40,7 @@ export default function AboutCUSS() {
                 >
                 <Stack align={'center'} spacing={4}>
                     <Box mt={2}>                        
-                        <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: visiMisi?.data.content as string }} />
+                        <Text mt={1} fontSize={'sm'} dangerouslySetInnerHTML={{ __html: visiMisi?.data.content as string }} />
                     </Box>
                 </Stack>
             </Box>
