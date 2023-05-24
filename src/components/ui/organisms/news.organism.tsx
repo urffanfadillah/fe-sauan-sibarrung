@@ -7,7 +7,6 @@ import axios from "axios";
 export const BlogAuthor: React.FC<blogAuthorType> = (props) => {
   return (
     <HStack marginTop="2" spacing="2" display="flex" alignItems="center">
-      <Text fontWeight="medium">{props.name}</Text>
       <Text>—</Text>
       <Text>{props.date.toLocaleDateString()}</Text>
     </HStack>
@@ -72,7 +71,6 @@ const News = () => {
                         </Heading>
                         <Text as="p" fontSize="md" marginTop="2" dangerouslySetInnerHTML={{ __html: result.content.slice(0, 100) + '...' }} />
                         <BlogAuthor
-                        name="Admin"
                         date={new Date(result.created_at)}
                         />
                     </Box>

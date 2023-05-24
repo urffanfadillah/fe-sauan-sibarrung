@@ -49,7 +49,7 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
         </Box>
         <Box p={2}>
           <Heading size="md" textAlign={"center"}>{heading}</Heading>
-          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description.slice(0, 1000) }} />
+          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description }} />
         </Box>
         <Box
           position={{base:"relative", md: "absolute"}}
@@ -71,7 +71,7 @@ export default function Feature() {
   const [testimoni, setTestimoni] = useState<cardTestimoniType[]>([]);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_ENDPOINT}kisah-sukses-home`)
+    axios.get(`${import.meta.env.VITE_ENDPOINT}testimonial-home`)
       .then((response) => {
         setTestimoni(response.data.data.data)
       });
@@ -99,7 +99,7 @@ export default function Feature() {
           <Slider {...settings}>
             {
               testimoni.map((result, index) =>               
-                <Card key={index} heading={result.title} image_url={result.image_url} description={result.content} slug={result.slug} />
+                <Card key={index} heading={result.title} image_url={result.image_url} description={result.content.slice(0, 500)} slug={result.slug} />
               )
             }
           </Slider>
