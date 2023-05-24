@@ -5,7 +5,7 @@ import Feature from "../ui/organisms/feature.organism";
 
 export default function ProfilVisiMisi() {
     return (
-        <Flex direction={"column"}>
+        <Flex direction={"column"} my={4}>
             <Navigation links={[
                 {
                     href: "/",

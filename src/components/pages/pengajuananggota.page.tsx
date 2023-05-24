@@ -117,7 +117,7 @@ export default function PengajuanAnggota() {
     const [alert, setAlert] = useState(false);
     
     return (
-        <Container maxW={'6xl'} display={'flex'} flexDirection={'column'} gap={6}>
+        <Container maxW={'6xl'} display={'flex'} flexDirection={'column'} gap={6} my={4}>
             <Heading textAlign={'center'}>Formulir Pengajuan Anggota</Heading>
             {
                 alert || localStorage.getItem("alert") && (

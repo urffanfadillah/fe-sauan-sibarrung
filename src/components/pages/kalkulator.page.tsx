@@ -25,7 +25,7 @@ export default function Kalkulator() {
     }
 
     return (
-        <Container maxW={'6xl'}>
+        <Container maxW={'6xl'} my={4}>
             <Grid                
                 templateRows='repeat(1, 1fr)'
                 templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)'}}

@@ -21,7 +21,7 @@ export default function ProdukSimpanan() {
     }, []);
 
     return (
-        <Container maxW={'6xl'}>
+        <Container maxW={'6xl'} my={4}>
             <Flex direction={"column"}>
                 <Navigation links={[
                     {

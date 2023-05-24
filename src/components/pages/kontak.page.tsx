@@ -31,7 +31,7 @@ export default function Kontak() {
     }
 
     return (
-        <Container maxW={'6xl'}>
+        <Container maxW={'6xl'} my={4}>
             <Heading size={'xl'} textAlign={'center'}>Kontak</Heading>
             <form onSubmit={handleSubmit(onSubmit)} style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
                 <FormControl>
