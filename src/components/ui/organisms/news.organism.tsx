@@ -46,34 +46,48 @@ const News = () => {
             <Wrap spacing="30px" marginTop="5">
                 {
                 berita.map((result, index) =>
-                    <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }} key={index}>
-                    <Box w="100%">
-                        <Box borderRadius="lg" overflow="hidden">
-                        <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
+                    <WrapItem 
+                        width={{ base: '100%', sm: '45%', md: '45%', lg: '25%' }} 
+                        key={index} 
+                        border={'1px solid #333333'} 
+                        p={2} 
+                        borderRadius={'lg'}
+                        backgroundColor={'white'}
+                        _hover={{backgroundColor: '#333333', color: 'white'}}
+                        cursor={'pointer'}
+                    >
+                        <Box w="100%" overflow={'hidden'}>
+                        <Box borderRadius="lg">
+                            <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
                             <Image
-                            transform="scale(1.0)"
-                            src={result.image_url}
-                            alt={result.title}
-                            objectFit="cover"
-                            width="100%"
-                            height="240px"
-                            transition="0.3s ease-in-out"
-                            _hover={{
+                                transform="scale(1.0)"
+                                src={result.image_url}
+                                alt={result.title}
+                                objectFit="cover"
+                                width="100%"
+                                height="240px"
+                                transition="0.3s ease-in-out"
+                                _hover={{
                                 transform: 'scale(1.05)',
-                            }}
+                                }}
                             />
-                        </Link>
+                            </Link>
                         </Box>
-                        <Heading fontSize="xl" marginTop="2"  overflow={'hidden'}>
                         <Link textDecoration="none" _hover={{ textDecoration: 'none' }} isTruncated href={`/berita/${result.slug}`}>
-                            {result.title}
+                            <Heading fontSize="sm" marginTop="2">
+                                {result.title}
+                            </Heading>
+                            <Text as="p" fontSize="xs" marginTop="2" dangerouslySetInnerHTML={{ __html: result.content.slice(0, 100) + '...' }} />
                         </Link>
-                        </Heading>
-                        <Text as="p" fontSize="md" marginTop="2" dangerouslySetInnerHTML={{ __html: result.content.slice(0, 100) + '...' }} />
-                        <BlogAuthor
-                        date={new Date(result.created_at)}
-                        />
-                    </Box>
+                        <BlogAuthor date={new Date(result.created_at)}/>
+                        <Box width={'full'} display={'flex'} justifyContent={'center'} alignItems={'center'} my={2}>
+                            <Link textDecoration="none" _hover={{ textDecoration: 'none' }} href={`/berita/${result.slug}`}>
+                            <Button variant={'solid'} backgroundColor={'#333333'} color={'#ffffff'} _hover={{backgroundColor: '#ffffff', color: '#333333'}}>
+                                Selengkapnya
+                            </Button>
+                            </Link>
+                        </Box>
+                        </Box>
                     </WrapItem>
                 )
                 }

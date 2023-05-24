@@ -43,8 +43,8 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
           <Image
             src={image_url}
             maxW={{base: 'full', md: '240px'}}
-            h={{base: 'full', md: '240px'}}
-            rounded={'lg'}                          
+            h={{base: '160px', md: '240px'}}
+            rounded={'lg'}
           />
         </Box>
         <Box p={2}>

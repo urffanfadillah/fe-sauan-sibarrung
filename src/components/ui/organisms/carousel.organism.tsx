@@ -30,7 +30,7 @@ export default function CaptionCarousel() {
     infinite: true,
     autoplay: true,
     speed: 500,
-    autoplaySpeed: duration * 1000,
+    autoplaySpeed: duration * 1000 || 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
