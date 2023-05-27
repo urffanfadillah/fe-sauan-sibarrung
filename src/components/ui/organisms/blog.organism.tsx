@@ -28,7 +28,7 @@ const Blog = () => {
         Berita Terbaru
       </Heading>
       <Divider marginTop="5" />
-      <SimpleGrid columns={4} spacing={'16px'}>
+      <SimpleGrid columns={{base:1, md: 2, lg: 4}} spacing={'16px'}>
           {
           berita.map((result, index) =>
               <Box

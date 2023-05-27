@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Flex, Button, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Flex, Button, SimpleGrid, VStack } from '@chakra-ui/react';
 import { blogAuthorType } from '../../../hooks/interfaces/blogauthor.interface';
 import { beritaType } from '../../../hooks/interfaces/berita.interface';
 import axios from "axios";
@@ -23,18 +23,25 @@ const News = () => {
   
     const [berita, setBerita] = useState<beritaType[]>([]);
     const [pagesUrl, setPagesUrl] = useState<linkBeritaType[]>([]);
-    const [beritaEndpoint, setBeritaEndpoint] = useState('berita-home');
+    const [currentPage, setCurrentPage] = useState(0);
+    const [beritaEndpoint, setBeritaEndpoint] = useState('berita?page=1');
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_ENDPOINT}${beritaEndpoint}`)
         .then((response) => {
             setBerita(response.data.data.data);
             setPagesUrl(response.data.data.links);
+            setCurrentPage(response.data.data.current_page);
         });
     }, []);
 
     function changeBeritaEndpoint(endpoint: string) {
-        setBeritaEndpoint(endpoint)
+        axios.get(`${endpoint}`)
+        .then((response) => {
+            setBerita(response.data.data.data);
+            setPagesUrl(response.data.data.links);
+            setCurrentPage(response.data.data.current_page);
+        });
     }
 
     return (
@@ -43,7 +50,7 @@ const News = () => {
                 CU News
             </Heading>
             <Divider marginTop="5" />
-            <SimpleGrid columns={4} spacing={'16px'}>
+            <SimpleGrid columns={{base:1, md: 2, lg: 4}} spacing={'16px'}>
                 {
                 berita.map((result, index) =>
                     <Box
@@ -95,8 +102,11 @@ const News = () => {
             </Wrap>
             <Flex gap={6} my={4}>
                 {
-                    pagesUrl.map((result, index) =>                        
-                        <Button onClick={() => result.url != null ? changeBeritaEndpoint(result.url) : console.log('nulled')} isDisabled={result.active == false ? true : false} colorScheme='messenger' key={index}>
+                    pagesUrl.map((result:any, index:any = 1) =>
+                        <Button onClick={() => result.url != null ? changeBeritaEndpoint(result.url) : console.log('nulled')} 
+                            colorScheme='messenger' key={index}
+                            isDisabled={ result.active || result.url == null ? true : false }
+                        >
                             <Text dangerouslySetInnerHTML={{__html: result.label}} />
                         </Button>
                     )
