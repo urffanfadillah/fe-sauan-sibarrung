@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Flex, Button } from '@chakra-ui/react';
+import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Flex, Button, SimpleGrid } from '@chakra-ui/react';
 import { blogAuthorType } from '../../../hooks/interfaces/blogauthor.interface';
 import { beritaType } from '../../../hooks/interfaces/berita.interface';
 import axios from "axios";
@@ -43,11 +43,10 @@ const News = () => {
                 CU News
             </Heading>
             <Divider marginTop="5" />
-            <Wrap spacing="30px" marginTop="5">
+            <SimpleGrid columns={4} spacing={'16px'}>
                 {
                 berita.map((result, index) =>
-                    <WrapItem 
-                        width={{ base: '100%', sm: '45%', md: '45%', lg: '25%' }} 
+                    <Box
                         key={index} 
                         border={'1px solid #333333'} 
                         p={2} 
@@ -88,9 +87,11 @@ const News = () => {
                             </Link>
                         </Box>
                         </Box>
-                    </WrapItem>
+                    </Box>
                 )
                 }
+            </SimpleGrid>
+            <Wrap marginTop="5">
             </Wrap>
             <Flex gap={6} my={4}>
                 {
