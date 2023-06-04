@@ -12,6 +12,7 @@ interface listKomentarType {
 export default function DaftarKomentar(props: any) {
     const [listKomentar, setListKomentar] = useState<listKomentarType[]>([]);
     const [urlSlug, setUrlSlug] = useState(props.urlSlug);
+    const [active, setActive] = useState<boolean>(false);
     const toast = useToast();
     const navigate = useNavigate();
     const refreshPage = () => {
@@ -22,6 +23,7 @@ export default function DaftarKomentar(props: any) {
     function onSubmit(data: any) {
         setValue("reply_to", null);
         axios.post(`${import.meta.env.VITE_ENDPOINT}komen`, data).then((response) => {
+            setActive(!active);
             console.log(response.data);
             toast({
                 title: 'Berhasil buat komentar.',
@@ -31,7 +33,7 @@ export default function DaftarKomentar(props: any) {
             });
             setInterval(() => {
                 refreshPage()
-            }, 5000);
+            }, 1000);
         });
     }
 
@@ -54,13 +56,13 @@ export default function DaftarKomentar(props: any) {
                     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '6' }}>
                         <FormControl my={2}>
                             <FormLabel>Nama Anda</FormLabel>
-                            <Input type='text' {...register("nama")} />
+                            <Input type='text' {...register("nama")} required />
                         </FormControl>
                         <FormControl my={2}>
                             <FormLabel>Isi Komentar</FormLabel>
-                            <Input type='text' {...register("content")} />
+                            <Input type='text' {...register("content")} required />
                         </FormControl>
-                        <Button type="submit" colorScheme="messenger" my={2}>Kirim</Button>
+                        <Button type="submit" colorScheme="messenger" my={2} isDisabled={active}>Kirim</Button>
                     </form>
                     <Stack divider={<StackDivider />} spacing='4' mt={8}>
                         {

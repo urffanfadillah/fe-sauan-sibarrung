@@ -6,13 +6,17 @@ import axios from "axios";
 
 interface strukturType {
     content: string;
+    image_url: string;
 }
 
 export default function Struktur() {
-    const [data, setData] = useState<strukturType[]>([]);
+    const [data, setData] = useState<strukturType>({
+        content: '',
+        image_url: ''
+    });
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_ENDPOINT}struktur-organisasi`).then((response) => {
-            setData(response.data.data.content);
+            setData(response.data.data);
         });
     }, []);
     return (
@@ -25,13 +29,13 @@ export default function Struktur() {
                     },
                     {
                         href: "/struktur-organisasi",
-                        name: "Struktur"
+                        name: "Struktur Organisasi"
                     }
                 ]} />
             </Flex>
             
-            <Heading my={12} textAlign={'center'}>Struktur Pengurus & Pengawas</Heading>
-            <div dangerouslySetInnerHTML={{ __html: data }} />
+            <Heading my={12} textAlign={'center'}>Struktur Organisasi</Heading>
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
         </Container>
     )
 }

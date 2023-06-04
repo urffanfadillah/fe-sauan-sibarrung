@@ -3,16 +3,23 @@ import Navigation from "../ui/molecules/navigation.molecule";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DaftarKomentar from "../ui/organisms/daftarkomentar.organism";
 
 interface detailBeritaTypes {
     title: string;
     content: string;
     created_at: string;
+    slug: string;
 }
 
 export default function DetailBerita() {
     const { idBerita } = useParams();
-    const [detailBerita, setDetailBerita] = useState<detailBeritaTypes>();
+    const [detailBerita, setDetailBerita] = useState<detailBeritaTypes>({
+        title: "",
+        content: "",
+        created_at: "",
+        slug: ""
+    });
     useEffect(() => {        
         axios.get(`${import.meta.env.VITE_ENDPOINT}berita-detail/${idBerita}`)
             .then((response) => {
@@ -43,7 +50,8 @@ export default function DetailBerita() {
             <VStack spacing={4} py={4}>
                 <Heading textAlign={'center'}>{detailBerita?.title}</Heading>
                 <Text fontSize={'xs'}>{new Date(detailBerita?.created_at as string).toLocaleDateString()}</Text>
-                <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />
+                <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />                
+                <DaftarKomentar urlSlug={idBerita} />
             </VStack>
         </Container>
     )

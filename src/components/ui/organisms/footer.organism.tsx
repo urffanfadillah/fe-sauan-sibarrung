@@ -22,16 +22,13 @@ const Footer = () => {
         <Flex gap={4} alignItems={'start'} flexDirection={'column'}>
             <Image src={imgFooter} w={32} />
             <Flex alignItems="center" gap={4} color={'#000000'}>
-              <Box as="a" href="#">
+              <Box as="a" href="https://youtube.com/@cusauansibarrung3768" target="_blank">
                 <Icon as={BsFacebook} w={6} h={6} />
               </Box>        
-              <Box as="a" href="#" mr={2}>
+              <Box as="a" href="https://instagram.com/cusauansibarrung?igshid=MzNlNGNkZWQ4Mg==" mr={2} target="_blank">
                 <Icon as={BsInstagram} w={6} h={6} />
               </Box>
-              <Box as="a" href="#" mr={2}>
-                <Icon as={BsGlobe} w={6} h={6} />
-              </Box>
-              <Box as="a" href="#" mr={2}>
+              <Box as="a" href="https://youtube.com/@cusauansibarrung3768" mr={2} target="_blank">
                 <Icon as={BsYoutube} w={6} h={6} />
               </Box>
             </Flex>

@@ -5,8 +5,7 @@ import { cardTestimoniType } from '../../../hooks/interfaces/cardtestimoni.inter
 import Slider from 'react-slick';
 import { ImQuotesRight } from "react-icons/im";
 
-interface CardProps {
-  heading: string;
+interface CardProps {  
   description: string;
   image_url: string;
   slug: string;
@@ -23,7 +22,7 @@ const settings = {
   autoplaySpeed: 3000,
 };
 
-const Card = ({ heading, description, image_url, slug }: CardProps) => {
+const Card = ({ description, image_url, slug }: CardProps) => {
   return (
     <>
       <Box
@@ -38,6 +37,7 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
         backgroundColor={'#f0f0f0'}
         borderRadius={'lg'}
         position={'relative'}
+        px={{base:4, md:16}}
       >
         <Box p={4}>
           <Image
@@ -47,9 +47,8 @@ const Card = ({ heading, description, image_url, slug }: CardProps) => {
             rounded={'lg'}
           />
         </Box>
-        <Box p={2}>
-          <Heading size="md" textAlign={"center"}>{heading}</Heading>
-          <Text mt={1} fontSize={'sm'} textAlign={"center"} dangerouslySetInnerHTML={{ __html: description }} />
+        <Box px={{base:2, md:8}}>
+          <Text mt={1} fontSize={'md'} dangerouslySetInnerHTML={{ __html: description }} />
         </Box>
         <Box
           position={{base:"relative", md: "absolute"}}
@@ -99,7 +98,7 @@ export default function Feature() {
           <Slider {...settings}>
             {
               testimoni.map((result, index) =>               
-                <Card key={index} heading={result.title} image_url={result.image_url} description={result.content.slice(0, 500)} slug={result.slug} />
+                <Card key={index} image_url={result.image_url} description={result.content} slug={result.slug} />
               )
             }
           </Slider>

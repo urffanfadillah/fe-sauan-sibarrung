@@ -329,6 +329,10 @@ const NAV_ITEMS: Array<navItemType> = [
         label: "Kisah Sukses",
         href: "/kisah-sukses",
       },
+      {
+        label: "Galeri Foto",
+        href: "/galeri-foto",
+      },
     ],
   },
   {

@@ -1,7 +1,7 @@
 import Feature from "../ui/organisms/feature.organism"
 import Carousel from "../ui/organisms/carousel.organism"
 import Blog from "../ui/organisms/blog.organism"
-import { Container, Flex, Heading, Image, VStack } from "@chakra-ui/react"
+import { Box, Container, Flex, Heading, Image, VStack } from "@chakra-ui/react"
 import imgKalkulatorMenurun from "../../assets/images/Kalkulator Bunga Menurun.png"
 import imgKalkulatorTetap from "../../assets/images/Kalkulator setoran tetap.png"
 import { Link } from "react-router-dom"
@@ -9,6 +9,7 @@ import Videos from "../ui/organisms/videos.organism"
 import Statistic from "../ui/organisms/statistic.organism"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Agenda from "../ui/organisms/agenda.organism"
 
 export default function Home() {
     const [imgVisiMisi, setImgVisiMisi] = useState('');
@@ -30,11 +31,9 @@ export default function Home() {
             <Image src={imgPengurus} maxW={{base: 'full', md:'6xl'}} mx={'auto'} />
             <Videos />
             <Statistic />
-            <Container maxW={'6xl'} py={6}>
+            <Container maxW={'6xl'} py={6} alignItems={'center'}>
+                <Feature />
                 <Flex flexDirection={{base: 'column'}} gap={6} justifyContent={'center'} alignItems={'center'}>
-                    <VStack width={{base: 'full'}}>
-                        <Feature />
-                    </VStack>
                     <VStack spacing={12} width={{base: 'full'}}>
                         <Heading fontSize={{ base: '2xl', sm: '4xl' }} mb={6} textAlign={'center'}>Kalkulator Kredit</Heading>
                         <Flex flexDirection={{base: 'column', md:'row'}} justifyContent={'space-around'} alignItems={'center'} w={'full'} gap={{base: 16, md: 0}}>
@@ -48,6 +47,7 @@ export default function Home() {
                     </VStack>
                 </Flex>
             </Container>
+            <Agenda />
         </>
     )
 }

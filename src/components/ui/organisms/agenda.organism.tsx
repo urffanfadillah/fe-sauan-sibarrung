@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Heading, Link, Image, Text, Divider, HStack, Wrap, WrapItem, Container, Button, SimpleGrid } from '@chakra-ui/react';
 import { blogAuthorType } from '../../../hooks/interfaces/blogauthor.interface';
 import { beritaType } from '../../../hooks/interfaces/berita.interface';
+import { BsFillCalendar3WeekFill } from "react-icons/bs";
 import axios from "axios";
 
 export const BlogAuthor: React.FC<blogAuthorType> = (props) => {
@@ -12,11 +13,11 @@ export const BlogAuthor: React.FC<blogAuthorType> = (props) => {
   );
 };
 
-const Blog = () => {
+const Agenda = () => {
   
   const [berita, setBerita] = useState<beritaType[]>([]);
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_ENDPOINT}berita-home`)
+    axios.get(`${import.meta.env.VITE_ENDPOINT}agenda`)
       .then((response) => {
         setBerita(response.data.data.data);
       });
@@ -24,10 +25,10 @@ const Blog = () => {
       
   return (
     <Container maxW={'6xl'}>
-      <Heading as="h2" marginTop="5" textAlign={'center'}>
-        Berita Terbaru
+      <Heading as="h2" marginTop="5" textAlign={'center'} display={'flex'} gap={2} justifyContent={'center'}>
+        Agenda Terbaru <BsFillCalendar3WeekFill />
       </Heading>
-      <Divider marginTop="5" />
+      <Divider my="5" />
       <SimpleGrid columns={{base:1, md: 2, lg: 4}} spacing={'16px'}>
           {
           berita.map((result, index) =>
@@ -61,7 +62,7 @@ const Blog = () => {
                       <Heading fontSize="sm" marginTop="2">
                           {result.title}
                       </Heading>
-                      <Text as="p" fontSize="xs" marginTop="2" dangerouslySetInnerHTML={{ __html: result.content.slice(0, 100) + '...' }} />
+                      <Text as="p" fontSize="xs" marginTop="2" dangerouslySetInnerHTML={{ __html: result.deskripsi.slice(0, 100) + '...' }} />
                   </Link>
                   <BlogAuthor date={new Date(result.created_at)}/>
                   <Box width={'full'} display={'flex'} justifyContent={'center'} alignItems={'center'} my={2}>
@@ -80,4 +81,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Agenda;
