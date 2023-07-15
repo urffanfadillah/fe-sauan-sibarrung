@@ -15,10 +15,10 @@ export default function Home() {
     const [imgVisiMisi, setImgVisiMisi] = useState('');
     const [imgPengurus, setImgPengurus] = useState('');
     useEffect(() => {
-        axios.get('https://cusauansibarrung.arcanamedia.net/api/visi-misi').then((response) => {
+        axios.get(`${import.meta.env.VITE_ENDPOINT}visi-misi`).then((response) => {
             setImgVisiMisi(response.data.data.image_url);
         });
-        axios.get('https://cusauansibarrung.arcanamedia.net/api/profil-pengurus').then((response) => {
+        axios.get(`${import.meta.env.VITE_ENDPOINT}profil-pengurus`).then((response) => {
             setImgPengurus(response.data.data.image_url);
         });
     }, []);

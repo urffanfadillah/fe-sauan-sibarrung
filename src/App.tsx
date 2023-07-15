@@ -24,6 +24,7 @@ const Kalkulator = lazy(() => import('./components/pages/kalkulator.page'));
 const DetailTestimoni = lazy(() => import('./components/pages/detailtestimoni.page'));
 const Kontak = lazy(() => import('./components/pages/kontak.page'));
 const GaleriFoto = lazy(() => import('./components/pages/galerifoto.page'));
+const DetailAgenda = lazy(() => import('./components/pages/detailAgenda.page'));
 
 import "./assets/global.css"
 
@@ -53,6 +54,7 @@ export default function App() {
           <Route path='/kalkulator' element={<Kalkulator />} />
           <Route path='/kontak' element={<Kontak />} />
           <Route path='/galeri-foto' element={<GaleriFoto />} />
+          <Route path='/detail-agenda/:tanggal' element={<DetailAgenda />} />
         </Route>
       </Routes>
     </Router>
