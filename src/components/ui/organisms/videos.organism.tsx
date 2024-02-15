@@ -1,11 +1,11 @@
-import { AspectRatio, Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { AspectRatio, Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface videoType {
     title: string,
     slug: string,
-    image_url: string,
+    video_url: string,
     date_id: string,
 }
 
@@ -23,43 +23,16 @@ export default function Videos() {
             <SimpleGrid columns={{base: 1, md:2}} spacing={10}>
                 {
                     video.map((result, index) =>
-                        <AspectRatio key={index} ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
+                        <AspectRatio maxW='560px' ratio={1} height={'320px'}>
                             <iframe
-                                src={result.image_url}
+                                title='video'
+                                src={result.video_url}
                                 allowFullScreen
                                 style={{borderRadius: '32px'}}
                             />
                         </AspectRatio>
                     )
                 }
-                {/* <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
-                    <iframe
-                        src='https://www.youtube.com/embed/W071ozUXZDw'
-                        allowFullScreen
-                        style={{borderRadius: '32px'}}
-                    />
-                </AspectRatio>
-                <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
-                    <iframe
-                        src='https://www.youtube.com/embed/_CbTcFbICwk'
-                        allowFullScreen
-                        style={{borderRadius: '32px'}}
-                    />
-                </AspectRatio>
-                <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
-                    <iframe
-                        src='https://www.youtube.com/embed/sIyBIZJWAsY'
-                        allowFullScreen
-                        style={{borderRadius: '32px'}}
-                    />
-                </AspectRatio>
-                <AspectRatio ratio={1} maxW={'full'} height={'320px'} rounded={'lg'}>
-                    <iframe
-                        src='https://www.youtube.com/embed/Wxb7gnRgcN4'
-                        allowFullScreen
-                        style={{borderRadius: '32px'}}
-                    />
-                </AspectRatio> */}
             </SimpleGrid>
         </Container>
     )
