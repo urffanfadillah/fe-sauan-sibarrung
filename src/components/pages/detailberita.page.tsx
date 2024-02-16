@@ -1,4 +1,4 @@
-import { Container, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import Navigation from "../ui/molecules/navigation.molecule";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ interface detailBeritaTypes {
     content: string;
     created_at: string;
     slug: string;
+    image_url: string;
 }
 
 export default function DetailBerita() {
@@ -18,7 +19,8 @@ export default function DetailBerita() {
         title: "",
         content: "",
         created_at: "",
-        slug: ""
+        slug: "",
+        image_url: "",
     });
     useEffect(() => {        
         axios.get(`${import.meta.env.VITE_ENDPOINT}berita-detail/${idBerita}`)
@@ -50,6 +52,7 @@ export default function DetailBerita() {
             <VStack spacing={4} py={4}>
                 <Heading textAlign={'center'}>{detailBerita?.title}</Heading>
                 <Text fontSize={'xs'}>{new Date(detailBerita?.created_at as string).toLocaleDateString()}</Text>
+                <Image src={detailBerita?.image_url} sx={{ width: '100%', height: {"sm": '200px', "md": '600px'}, objectFit: 'cover' }} />
                 <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />                
                 <DaftarKomentar urlSlug={idBerita} />
             </VStack>
