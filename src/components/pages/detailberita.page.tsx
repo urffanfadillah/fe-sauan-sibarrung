@@ -32,30 +32,39 @@ export default function DetailBerita() {
     }, []);
 
     return (
-        <Container maxW={'6xl'} my={4}>
-            <Flex direction={"column"}>
-                <Navigation links={[
-                    {
-                        href: "/",
-                        name: "Home"
-                    },
-                    {
-                        href: "/berita",
-                        name: "Berita"
-                    },
-                    {
-                        href: "/berita-detail" + idBerita,
-                        name: detailBerita?.title as string,
-                    }
-                ]} />                
-            </Flex>
-            <VStack spacing={4} py={4}>
-                <Heading textAlign={'center'}>{detailBerita?.title}</Heading>
-                <Text fontSize={'xs'}>{new Date(detailBerita?.created_at as string).toLocaleDateString()}</Text>
-                <Image src={detailBerita?.image_url} sx={{ width: '100%', height: {"sm": '200px', "md": '600px'}, objectFit: 'cover' }} />
-                <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />                
-                <DaftarKomentar urlSlug={idBerita} />
-            </VStack>
-        </Container>
+        <>
+            <head>
+                <title>{detailBerita?.title}</title>
+                <meta property="og:title" content={detailBerita?.title} />
+                <meta property="og:description" content={detailBerita?.content} />
+                <meta property="og:image" content={detailBerita?.image_url} />
+                <meta property="og:url" content={window.location.href} />
+            </head>
+            <Container maxW={'6xl'} my={4}>
+                <Flex direction={"column"}>
+                    <Navigation links={[
+                        {
+                            href: "/",
+                            name: "Home"
+                        },
+                        {
+                            href: "/berita",
+                            name: "Berita"
+                        },
+                        {
+                            href: "/berita-detail" + idBerita,
+                            name: detailBerita?.title as string,
+                        }
+                    ]} />                
+                </Flex>
+                <VStack spacing={4} py={4}>
+                    <Heading textAlign={'center'}>{detailBerita?.title}</Heading>
+                    <Text fontSize={'xs'}>{new Date(detailBerita?.created_at as string).toLocaleDateString()}</Text>
+                    <Image src={detailBerita?.image_url} sx={{ width: '100%', height: {"sm": '200px', "md": '600px'}, objectFit: 'cover' }} />
+                    <Text dangerouslySetInnerHTML={{__html: detailBerita?.content as string}} />                
+                    <DaftarKomentar urlSlug={idBerita} />
+                </VStack>
+            </Container>
+        </>
     )
 }
