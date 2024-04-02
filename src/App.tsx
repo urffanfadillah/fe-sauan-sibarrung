@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loading from "./components/ui/organisms/loading.organism";
+import { HelmetProvider } from "react-helmet-async"
 
 const Layout = lazy(() => import('./components/templates/layout.template'));
 const HomePage = lazy(() => import('./components/pages/home.page'));
@@ -30,33 +31,35 @@ import "./assets/global.css"
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Suspense fallback={<Loading />}><Layout /></Suspense>}>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/berita/:idBerita' element={<DetailBerita />} />
-          <Route path='/kisah-sukses/:slugTestimoni' element={<DetailTestimoni />} />
-          <Route path='/visi-misi' element={<VisiMisiPage />} />
-          <Route path='/struktur-organisasi' element={<Struktur />} />
-          <Route path='/about-cu' element={<AboutCU />} />
-          <Route path='/about-cuss' element={<AboutCUSS />} />
-          <Route path='/history-cuss' element={<HistoryCUSS />} />
-          <Route path='/profil-pengurus' element={<Pengurus />} />
-          <Route path='/kaisungan' element={<Kaisungan />} />
-          <Route path='/produk-simpanan' element={<ProdukSimpanan />} />
-          <Route path='/pelayanan-pinjaman' element={<PelayananPinjaman />} />
-          <Route path='/latar-komunitas' element={<LatarKomunitas />} />
-          <Route path='/komunitas' element={<Komunitas />} />
-          <Route path='/cara-menjadi-anggota' element={<CaraMenjadiAnggota />} />
-          <Route path='/pengajuan-anggota' element={<PengajuanAnggota />} />
-          <Route path='/cu-news' element={<ListBerita />} />
-          <Route path='/kisah-sukses' element={<KisahSukses />}/>
-          <Route path='/kalkulator' element={<Kalkulator />} />
-          <Route path='/kontak' element={<Kontak />} />
-          <Route path='/galeri-foto' element={<GaleriFoto />} />
-          <Route path='/detail-agenda/:tanggal' element={<DetailAgenda />} />
-        </Route>
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Suspense fallback={<Loading />}><Layout /></Suspense>}>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/berita/:idBerita' element={<DetailBerita />} />
+            <Route path='/kisah-sukses/:slugTestimoni' element={<DetailTestimoni />} />
+            <Route path='/visi-misi' element={<VisiMisiPage />} />
+            <Route path='/struktur-organisasi' element={<Struktur />} />
+            <Route path='/about-cu' element={<AboutCU />} />
+            <Route path='/about-cuss' element={<AboutCUSS />} />
+            <Route path='/history-cuss' element={<HistoryCUSS />} />
+            <Route path='/profil-pengurus' element={<Pengurus />} />
+            <Route path='/kaisungan' element={<Kaisungan />} />
+            <Route path='/produk-simpanan' element={<ProdukSimpanan />} />
+            <Route path='/pelayanan-pinjaman' element={<PelayananPinjaman />} />
+            <Route path='/latar-komunitas' element={<LatarKomunitas />} />
+            <Route path='/komunitas' element={<Komunitas />} />
+            <Route path='/cara-menjadi-anggota' element={<CaraMenjadiAnggota />} />
+            <Route path='/pengajuan-anggota' element={<PengajuanAnggota />} />
+            <Route path='/cu-news' element={<ListBerita />} />
+            <Route path='/kisah-sukses' element={<KisahSukses />}/>
+            <Route path='/kalkulator' element={<Kalkulator />} />
+            <Route path='/kontak' element={<Kontak />} />
+            <Route path='/galeri-foto' element={<GaleriFoto />} />
+            <Route path='/detail-agenda/:tanggal' element={<DetailAgenda />} />
+          </Route>
+        </Routes>
+      </Router>
+    </HelmetProvider>
   )
 }

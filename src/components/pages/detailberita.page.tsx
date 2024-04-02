@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DaftarKomentar from "../ui/organisms/daftarkomentar.organism";
+import { Helmet } from "react-helmet-async";
 
 interface detailBeritaTypes {
     title: string;
@@ -33,13 +34,27 @@ export default function DetailBerita() {
 
     return (
         <>
-            <head>
-                <title>{detailBerita?.title}</title>
+            <Helmet>
+                {/* <title>{detailBerita?.title}</title>
                 <meta property="og:title" content={detailBerita?.title} />
                 <meta property="og:description" content={detailBerita?.content} />
                 <meta property="og:image" content={detailBerita?.image_url} />
-                <meta property="og:url" content={window.location.href} />
-            </head>
+                <meta property="twitter:image" content={detailBerita?.image_url} />
+                <meta property="facebook:image" content={detailBerita?.image_url} />
+                <meta property="og:url" content={window.location.href} /> */}
+                <meta name="title" content="CU Sauan Sibarrung Mengadakan Program Pelatihan bagi Supporting Unit" />
+                <meta name="description" content="Credit Union Saun Sibarrung telah mengadakan program pelatihan bagi Supporting Unit yang dihadiri oleh Ibu Wenef Natalia Palamba dan tim (BNI Makale) sebagai fasilitator dengan jumlah peserta 12 orang. Kegiatan ini berlangsung pada tanggal 3 februari 2024 bertempat di aula kantor pusat CU Sauan Sibarrung." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://cusauansibarrung.org/" />
+                <meta property="og:title" content="CU Sauan Sibarrung Mengadakan Program Pelatihan bagi Supporting Unit" />
+                <meta property="og:description" content="Credit Union Saun Sibarrung telah mengadakan program pelatihan bagi Supporting Unit yang dihadiri oleh Ibu Wenef Natalia Palamba dan tim (BNI Makale) sebagai fasilitator dengan jumlah peserta 12 orang. Kegiatan ini berlangsung pada tanggal 3 februari 2024 bertempat di aula kantor pusat CU Sauan Sibarrung." />
+                <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://cusauansibarrung.org/" />
+                <meta property="twitter:title" content="CU Sauan Sibarrung Mengadakan Program Pelatihan bagi Supporting Unit" />
+                <meta property="twitter:description" content="Credit Union Saun Sibarrung telah mengadakan program pelatihan bagi Supporting Unit yang dihadiri oleh Ibu Wenef Natalia Palamba dan tim (BNI Makale) sebagai fasilitator dengan jumlah peserta 12 orang. Kegiatan ini berlangsung pada tanggal 3 februari 2024 bertempat di aula kantor pusat CU Sauan Sibarrung." />
+                <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+            </Helmet>
             <Container maxW={'6xl'} my={4}>
                 <Flex direction={"column"}>
                     <Navigation links={[
