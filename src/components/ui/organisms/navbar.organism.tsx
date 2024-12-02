@@ -323,7 +323,7 @@ const NAV_ITEMS: Array<navItemType> = [
     children: [
       {
         label: "Berita",
-        href: "/cu-news",
+        href: "https://www.news.cusauansibarrung.org/berita",
       },
       {
         label: "Kisah Sukses",
